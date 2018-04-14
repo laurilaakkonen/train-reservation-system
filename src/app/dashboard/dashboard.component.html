@@ -1,0 +1,9 @@
+<h3>Train list</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let train of trains" class="col-1-4"
+    routerLink="/detail/{{train.id}}">
+	<div class="module train">
+      <h4>{{train.name}}</h4>
+    </div>
+  </a>
+</div>

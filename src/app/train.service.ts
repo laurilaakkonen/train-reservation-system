@@ -18,5 +18,11 @@ export class TrainService {
 		this.messageService.add('TrainService: fetched trains');
 		return of(TRAINS);
 	}
+	
+	getTrain(id: number): Observable<Train> {
+		// TODO: send the message _after_ fetching the train
+		this.messageService.add(`TrainService: fetched train id=${id}`);
+		return of(TRAINS.find(train => train.id === id));
+}
 }
 

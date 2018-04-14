@@ -1,11 +1,9 @@
-<h2>My Trains</h2>
+<h2>Trains List</h2>
 
 <ul class="trains">
-  <li *ngFor="let train of trains"
-  [class.selected]="train === selectedTrain"
-  (click)="onSelect(train)">
-    <span class="badge">{{train.id}}</span> {{train.name}}
+  <li *ngFor="let train of trains">
+    <a routerLink="/detail/{{train.id}}">
+      <span class="badge">{{train.id}}</span> {{train.name}}
+    </a>
   </li>
 </ul>
-
-<app-train-detail [train]="selectedTrain"></app-train-detail>

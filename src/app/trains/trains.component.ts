@@ -10,8 +10,6 @@ import { TrainService } from '../train.service';
 })
 export class TrainsComponent implements OnInit {
 	
-	selectedTrain: Train;
-	
 	trains: Train[];
 	
 	constructor(private trainService: TrainService) { }
@@ -20,10 +18,6 @@ export class TrainsComponent implements OnInit {
 	  this.getTrains();
 	}
   
-	onSelect(train : Train): void{
-		this.selectedTrain = train;
-	}
-	
 	getTrains(): void {
 		this.trainService.getTrains()
 			.subscribe(trains => this.trains = trains);
