@@ -6,12 +6,15 @@ import { of } from 'rxjs/observable/of';
 import { Train } from './train';
 import { TRAINS } from './default-trains';
 import { MessageService } from './message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable()
 export class TrainService {
 
-  constructor(private messageService: MessageService) { }
+  constructor(
+	private http: HttpClient,
+	private messageService: MessageService) { }
   
   getTrains(): Observable<Train[]> {
 		//TODO: send message AFTER fetchig the trains
@@ -23,6 +26,9 @@ export class TrainService {
 		// TODO: send the message _after_ fetching the train
 		this.messageService.add(`TrainService: fetched train id=${id}`);
 		return of(TRAINS.find(train => train.id === id));
+}
+	private log(message: string) {
+		this.messageService.add('HeroService: ' + message);
 }
 }
 
